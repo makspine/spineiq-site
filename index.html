@@ -114,7 +114,7 @@
 <div class="glow-top"></div>
 <div class="glow-bottom"></div>
 <nav>
-  <a href="/" class="logo"><div class="logo-mark">S</div><span class="logo-text">SpineIQ</span></a>
+  <a href="/" class="logo"><img src="/logo-icon.svg" alt="SpineIQ" style="width:32px;height:32px;border-radius:8px;"/><span class="logo-text">SpineIQ</span></a>
   <div class="nav-links">
     <a href="#platform">Platform</a>
     <a href="#workflow">Workflow</a>
@@ -299,9 +299,9 @@ document.getElementById('contactForm').addEventListener('submit', async function
   btn.textContent = 'Sending...'; btn.disabled = true;
   msg.className = 'form-msg'; msg.style.display = 'none';
   try {
-    var res = await fetch('https://formsubmit.co/ajax/admin@spineiq.ai', {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ name: form.elements.name.value, email: form.elements.email.value, organization: form.elements.organization.value, message: form.elements.message.value, _subject: 'SpineIQ Contact Form' })
+    var res = await fetch('/api/contact', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: form.elements.name.value, email: form.elements.email.value, organization: form.elements.organization.value, message: form.elements.message.value })
     });
     if (!res.ok) throw new Error();
     msg.textContent = "Message sent successfully. We'll be in touch.";

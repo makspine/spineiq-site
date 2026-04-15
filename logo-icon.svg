@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <!-- SpineIQ Icon — Stylized vertebral column -->
+  <rect width="40" height="40" rx="10" fill="#06B6D4"/>
+
+  <g transform="translate(10, 5)">
+    <!-- Top vertebra -->
+    <rect x="4" y="0" width="12" height="5.5" rx="1.5" fill="#0B0F19"/>
+    <!-- Disc -->
+    <ellipse cx="10" cy="8" rx="6" ry="1.5" fill="#0B0F19" opacity="0.3"/>
+    <!-- Middle vertebra -->
+    <rect x="3" y="11" width="14" height="6.5" rx="2" fill="#0B0F19"/>
+    <!-- Neural arch -->
+    <path d="M3 14 Q-1 12 1 9" stroke="#0B0F19" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <path d="M17 14 Q21 12 19 9" stroke="#0B0F19" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <!-- Canal -->
+    <circle cx="10" cy="14.5" r="1.2" fill="#06B6D4"/>
+    <!-- Disc -->
+    <ellipse cx="10" cy="20" rx="6" ry="1.5" fill="#0B0F19" opacity="0.3"/>
+    <!-- Bottom vertebra -->
+    <rect x="4" y="23" width="12" height="5.5" rx="1.5" fill="#0B0F19"/>
+  </g>
+</svg>

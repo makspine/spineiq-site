@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" fill="none">
+  <!-- SpineIQ Logo — Vertebral abstraction + wordmark -->
+
+  <!-- Icon: Stylized vertebral column (3 segments with connecting curves) -->
+  <g transform="translate(4, 4)">
+    <!-- Top vertebra -->
+    <rect x="12" y="0" width="16" height="7" rx="2" fill="#06B6D4"/>
+    <!-- Disc -->
+    <ellipse cx="20" cy="10.5" rx="8" ry="2" fill="#06B6D4" opacity="0.4"/>
+    <!-- Middle vertebra (larger, highlighted) -->
+    <rect x="10" y="14" width="20" height="8" rx="2.5" fill="#06B6D4"/>
+    <!-- Neural arch hints -->
+    <path d="M10 18 Q4 16 6 12" stroke="#06B6D4" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <path d="M30 18 Q36 16 34 12" stroke="#06B6D4" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <!-- Disc -->
+    <ellipse cx="20" cy="25.5" rx="8" ry="2" fill="#06B6D4" opacity="0.4"/>
+    <!-- Bottom vertebra -->
+    <rect x="12" y="29" width="16" height="7" rx="2" fill="#06B6D4"/>
+    <!-- Spinal canal dot -->
+    <circle cx="20" cy="18" r="1.5" fill="#0B0F19"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="56" y="34" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="28" font-weight="800" letter-spacing="-0.5" fill="#F1F5F9">
+    Spine<tspan fill="#06B6D4">IQ</tspan>
+  </text>
+</svg>
