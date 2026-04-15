@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpineIQ — AI-Powered Spine Surgical Intelligence</title>
+  <meta name="description" content="SpineIQ is building AI-powered surgical intelligence for spine care. Precision planning meets deep learning.">
+  <meta property="og:title" content="SpineIQ — AI-Powered Spine Surgical Intelligence">
+  <meta property="og:description" content="AI-powered tools that help surgeons plan complex spine procedures with greater precision, consistency, and confidence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spineiq.ai">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SpineIQ">
+  <meta name="twitter:description" content="Surgical intelligence for spine care.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2306B6D4'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-size='18' font-weight='800' fill='%230B0F19'>S</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F19; --surface: #111827; --elevated: #1A2332;
+      --border: #1E293B; --border-light: #334155;
+      --text: #F1F5F9; --muted: #64748B; --secondary: #94A3B8;
+      --accent: #06B6D4; --accent-glow: rgba(6,182,212,0.15);
+      --violet: #8B5CF6; --success: #10B981; --error: #EF4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    ::selection { background: rgba(6,182,212,0.3); }
+    a { color: inherit; }
+    .glow-top { position: fixed; top: -200px; left: 50%; transform: translateX(-50%); width: 1000px; height: 600px; background: radial-gradient(ellipse, rgba(6,182,212,0.06) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .glow-bottom { position: fixed; bottom: -300px; right: -200px; width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(139,92,246,0.04) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 0.875rem 2rem; background: rgba(11,15,25,0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(30,41,59,0.5); }
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-mark { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; color: #0B0F19; }
+    .logo-text { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.85rem; color: var(--secondary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1.25rem; border-radius: 8px; background: var(--accent); color: #0B0F19; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+    .hero { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 6rem; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 1rem; border-radius: 100px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2); font-size: 0.72rem; font-weight: 600; color: var(--accent); margin-bottom: 2rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.035em; max-width: 700px; margin-bottom: 1.5rem; }
+    .gradient { background: linear-gradient(135deg, #06B6D4, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 1.15rem; line-height: 1.7; color: var(--secondary); max-width: 520px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { display: inline-block; padding: 0.8rem 2rem; border-radius: 10px; background: var(--accent); color: #0B0F19; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; box-shadow: 0 0 30px var(--accent-glow); font-family: inherit; }
+    .btn-primary:hover { box-shadow: 0 0 50px rgba(6,182,212,0.3); transform: translateY(-1px); }
+    .btn-secondary { display: inline-block; padding: 0.8rem 2rem; border-radius: 10px; background: transparent; color: var(--secondary); font-size: 0.95rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }
+    .btn-secondary:hover { border-color: var(--secondary); color: var(--text); }
+    .scroll-cue { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: float 2.5s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+    section { position: relative; z-index: 1; padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 1rem; line-height: 1.15; }
+    .section-desc { font-size: 1rem; color: var(--secondary); max-width: 560px; line-height: 1.7; margin-bottom: 3rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+    .card { padding: 2rem; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); transition: all 0.3s; }
+    .card:hover { border-color: rgba(6,182,212,0.25); transform: translateY(-2px); }
+    .card-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(6,182,212,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.85rem; color: var(--secondary); line-height: 1.65; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 2rem; padding: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 4rem 0; }
+    .stat { text-align: center; }
+    .stat .number { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--accent), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat .label { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+    .approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+    .approach-item { padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); transition: border-color 0.3s; }
+    .approach-item:hover { border-color: rgba(139,92,246,0.3); }
+    .approach-num { font-size: 0.68rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
+    .approach-item h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .approach-item p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+    .founder-section { border-top: 1px solid var(--border); }
+    .founder-card { max-width: 700px; margin: 0 auto; padding: 2.5rem; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); }
+    .founder-card blockquote { font-size: 1.05rem; line-height: 1.7; color: var(--secondary); font-style: italic; margin-bottom: 1.25rem; position: relative; padding-left: 1.5rem; }
+    .founder-card blockquote::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 2px; background: linear-gradient(180deg, var(--accent), var(--violet)); }
+    .founder-meta { display: flex; align-items: center; gap: 0.75rem; }
+    .founder-avatar { width: 40px; height: 40px; border-radius: 10px; background: var(--elevated); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--accent); }
+    .founder-meta .name { font-size: 0.85rem; font-weight: 700; }
+    .founder-meta .title { font-size: 0.75rem; color: var(--muted); }
+    .contact-section { background: linear-gradient(180deg, transparent 0%, rgba(6,182,212,0.03) 100%); }
+    .contact-inner { max-width: 520px; margin: 0 auto; text-align: center; }
+    .contact-inner h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .contact-inner > p { color: var(--secondary); margin-bottom: 2rem; font-size: 0.95rem; }
+    .contact-form { text-align: left; }
+    .form-row { margin-bottom: 1rem; }
+    .form-row label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+    .form-row input, .form-row textarea { width: 100%; padding: 0.7rem 1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
+    .form-row input:focus, .form-row textarea:focus { border-color: var(--accent); }
+    .form-row textarea { min-height: 120px; resize: vertical; }
+    .form-row input::placeholder, .form-row textarea::placeholder { color: var(--muted); opacity: 0.5; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit { margin-top: 0.5rem; width: 100%; font-family: inherit; }
+    .form-msg { margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.85rem; text-align: center; display: none; }
+    .form-msg.success { display: block; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--success); }
+    .form-msg.error { display: block; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: var(--error); }
+    footer { padding: 3rem 2rem; border-top: 1px solid var(--border); text-align: center; }
+    footer p { font-size: 0.72rem; color: var(--muted); }
+    .compliance { display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .compliance span { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    @media (max-width: 640px) { nav { padding: 0.75rem 1rem; } .nav-links a:not(.nav-cta) { display: none; } .stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } .form-grid { grid-template-columns: 1fr; } .hero { padding: 7rem 1.5rem 5rem; } }
+  </style>
+</head>
+<body>
+<div class="glow-top"></div>
+<div class="glow-bottom"></div>
+<nav>
+  <a href="/" class="logo"><div class="logo-mark">S</div><span class="logo-text">SpineIQ</span></a>
+  <div class="nav-links">
+    <a href="#platform">Platform</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#integration">Integration</a>
+    <a href="#contact" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-badge"><span class="dot"></span> In Development</div>
+  <h1>Surgical intelligence for <span class="gradient">spine care</span></h1>
+  <p>SpineIQ is building AI-powered tools that help surgeons plan complex spine procedures with greater precision, consistency, and confidence.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Get in Touch</a>
+    <a href="#platform" class="btn-secondary">Learn More</a>
+  </div>
+  <div class="scroll-cue"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#64748B"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></div>
+</div>
+<section id="platform">
+  <div class="container">
+    <div class="section-label">Platform</div>
+    <h2 class="section-title">From imaging to surgical plan</h2>
+    <p class="section-desc">Our platform processes medical imaging data through a multi-stage AI pipeline, producing surgeon-ready outputs for pre-operative planning.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#06B6D4" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg></div>
+        <h3>3D Anatomical Segmentation</h3>
+        <p>Multi-class deep learning segmentation across MR, CT, and X-ray modalities. Vertebrae, discs, neural structures, and surgical anatomy identified automatically.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#06B6D4" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg></div>
+        <h3>Alignment & Biomechanics</h3>
+        <p>Automated spinopelvic parameter computation with clinical classification. Normative comparison and correction targets derived from patient imaging.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#06B6D4" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></div>
+        <h3>Surgical Planning Reports</h3>
+        <p>Comprehensive pre-operative reports combining imaging analysis, alignment correction targets, and implant specifications delivered securely.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="number">3</div><div class="label">Imaging Modalities</div></div>
+      <div class="stat"><div class="number">100+</div><div class="label">Anatomical Classes</div></div>
+      <div class="stat"><div class="number">FDA</div><div class="label">Grade Pipeline</div></div>
+      <div class="stat"><div class="number">HIPAA</div><div class="label">Compliant</div></div>
+    </div>
+  </div>
+</section>
+<section id="approach">
+  <div class="container">
+    <div class="section-label">Approach</div>
+    <h2 class="section-title">Built by surgeons, for surgeons</h2>
+    <p class="section-desc">Our platform is designed by a practicing spine surgeon who understands the clinical workflow and the decisions that matter in the operating room.</p>
+    <div class="approach-grid">
+      <div class="approach-item"><div class="approach-num">01</div><h4>Multi-Modal AI</h4><p>Deep learning across MRI, CT, and X-ray. Not limited to a single imaging type.</p></div>
+      <div class="approach-item"><div class="approach-num">02</div><h4>Clinical Validation</h4><p>Human-in-the-loop training with board-certified surgeon oversight at every stage.</p></div>
+      <div class="approach-item"><div class="approach-num">03</div><h4>Regulatory First</h4><p>Designed for FDA and CE Mark from day one. Not retrofitted for compliance.</p></div>
+      <div class="approach-item"><div class="approach-num">04</div><h4>Secure by Design</h4><p>HIPAA-compliant architecture with end-to-end audit logging and de-identification.</p></div>
+    </div>
+  </div>
+</section>
+<!-- How It Works -->
+<section id="workflow" style="border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Workflow</div>
+    <h2 class="section-title">From upload to surgical plan</h2>
+    <p class="section-desc">A surgeon submits imaging and clinical context. The platform returns a complete pre-operative plan within minutes.</p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+      <div class="approach-item"><div class="approach-num">01</div><h4>Upload</h4><p>Submit de-identified MRI, CT, and/or standing scoliosis X-rays via secure portal.</p></div>
+      <div class="approach-item"><div class="approach-num">02</div><h4>Segment</h4><p>Multi-class AI identifies vertebrae, discs, neural elements, and surgical anatomy in 3D.</p></div>
+      <div class="approach-item"><div class="approach-num">03</div><h4>Analyze</h4><p>Compute spinopelvic alignment, correction targets, and implant specifications automatically.</p></div>
+      <div class="approach-item"><div class="approach-num">04</div><h4>Harmonize</h4><p>Register cross-modal data and repose to the patient's standing alignment for surgical planning.</p></div>
+      <div class="approach-item"><div class="approach-num">05</div><h4>Deliver</h4><p>Surgeon receives a PDF report, 3D visualization, and optional robotic navigation export.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Integration -->
+<section id="integration" style="border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Integration</div>
+    <h2 class="section-title">Fits into your existing workflow</h2>
+    <p class="section-desc">SpineIQ is designed to integrate with the systems surgeons and hospitals already use.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#06B6D4" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+        <h3>Robotic Navigation</h3>
+        <p>Export surgical plans directly to robotic platforms including Mazor X Stealth, Globus Excelsius GPS, ROSA Spine, and Brainlab navigation systems.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#06B6D4" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"/></svg></div>
+        <h3>EMR & PACS</h3>
+        <p>Push results to Epic, Cerner, MEDITECH, and other health system EMRs via HL7 FHIR. DICOM-format segmentation overlays route directly to institutional PACS.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#06B6D4" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <h3>Cross-Modal Fusion</h3>
+        <p>When MRI and standing X-ray are both submitted, the platform performs 2D-3D pose harmonization so the surgeon sees the 3D anatomy in the surgical standing position.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Founder -->
+<section class="founder-section">
+  <div class="container">
+    <div class="founder-card">
+      <blockquote>Existing surgical planning tools treat the spine as a series of disconnected measurements. We're building a platform that understands the spine as a biomechanical system and gives surgeons the intelligence they need before they enter the OR.</blockquote>
+      <div class="founder-meta">
+        <div class="founder-avatar">MK</div>
+        <div><div class="name">Founder & CEO</div><div class="title">Board-Certified Spine Surgeon</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">Contact</div>
+      <h2>Let's connect</h2>
+      <p>Interested in SpineIQ? Whether you're a surgeon, investor, or potential partner, we'd like to hear from you.</p>
+      <form class="contact-form" id="contactForm">
+        <div class="form-grid">
+          <div class="form-row"><label for="cf-name">Name</label><input type="text" id="cf-name" name="name" required placeholder="Dr. Jane Smith"></div>
+          <div class="form-row"><label for="cf-email">Email</label><input type="email" id="cf-email" name="email" required placeholder="jane@hospital.org"></div>
+        </div>
+        <div class="form-row"><label for="cf-org">Organization <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label><input type="text" id="cf-org" name="organization" placeholder="University Medical Center"></div>
+        <div class="form-row"><label for="cf-message">Message</label><textarea id="cf-message" name="message" required placeholder="Tell us about your interest in SpineIQ..."></textarea></div>
+        <button type="submit" class="btn-primary form-submit" id="submitBtn">Send Message</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="compliance"><span>HIPAA</span><span>FDA 21 CFR 11</span><span>SOC 2</span><span>CE / MDR</span></div>
+  <p>&copy; 2026 SpineIQ, Inc. All rights reserved.</p>
+</footer>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  var msg = document.getElementById('formMsg');
+  var form = this;
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  msg.className = 'form-msg'; msg.style.display = 'none';
+  try {
+    var res = await fetch('https://formsubmit.co/ajax/admin@spineiq.ai', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name: form.elements.name.value, email: form.elements.email.value, organization: form.elements.organization.value, message: form.elements.message.value, _subject: 'SpineIQ Contact Form' })
+    });
+    if (!res.ok) throw new Error();
+    msg.textContent = "Message sent successfully. We'll be in touch.";
+    msg.className = 'form-msg success'; form.reset();
+  } catch(err) {
+    msg.textContent = 'Unable to send. Please try again later.';
+    msg.className = 'form-msg error';
+  } finally { btn.textContent = 'Send Message'; btn.disabled = false; }
+});
+</script>
+</body>
+</html>
